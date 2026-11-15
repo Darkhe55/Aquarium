@@ -1,0 +1,85 @@
+/* ════════════════════════════════════════════════════════════════
+   水箱（Aquarium）—— 游戏专用皮肤
+   ════════════════════════════════════════════════════════════════ */
+
+:root {
+  --aq-water: #2f6f8f;
+  --aq-water-dark: #255a74;
+  --aq-ink: #24231f;
+  --aq-board: #ece4d3;
+  --aq-board-line: #d4cbb9;
+}
+
+.board-svg .aq-board-bg {
+  fill: var(--aq-board);
+  stroke: var(--aq-board-line);
+  stroke-width: 1.5;
+}
+
+.board-svg .aq-cell {
+  stroke: rgba(36, 35, 31, 0.08);
+  stroke-width: 1;
+  pointer-events: none;
+}
+
+.board-svg .aq-cell.filled {
+  stroke: var(--aq-water-dark);
+}
+
+.board-svg .aq-cell.mark {
+  opacity: 0.78;
+}
+
+.board-svg .aq-tank-lines line {
+  stroke: #6f6759;
+  stroke-width: 3;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+.board-svg .aq-x {
+  fill: rgba(36, 35, 31, 0.32);
+  font-family: var(--font);
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
+}
+
+.board-svg .aq-sum {
+  fill: var(--aq-ink);
+  font-family: var(--mono);
+  font-weight: 700;
+  text-anchor: end;
+  dominant-baseline: central;
+  pointer-events: none;
+}
+
+.board-svg .aq-sum.col {
+  text-anchor: middle;
+}
+
+.board-svg .aq-sum.issue {
+  fill: var(--error);
+}
+
+.board-svg .aq-error {
+  fill: rgba(194, 59, 46, 0.12);
+  stroke: var(--error);
+  stroke-width: 2.2;
+  pointer-events: none;
+}
+
+.board-svg .cell-hit {
+  pointer-events: all;
+}
+
+.board-svg .cell-hit:hover {
+  fill: rgba(31, 111, 92, 0.16);
+}
+
+.custom-cell.v-filled {
+  background: var(--aq-water);
+  border-color: var(--aq-water-dark);
+  color: #fffdf8;
+}
