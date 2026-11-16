@@ -55,6 +55,18 @@ npm start
 - Web Audio 合成音效（无外部资源）
 - localStorage / 项目内 `data/` 存储进度与题库
 
+## 从图片导入题库（自动识图）
+
+```bash
+node scripts/import-image.mjs month.png                     # 只预览识别结果，不写入
+node scripts/import-image.mjs month.png --append            # 追加到 src/game/puzzles-data.ts
+node scripts/import-image.mjs month.png --append --verify   # 顺带校验唯一解并写入参考解
+```
+
+- 用 Playwright + Edge 无头浏览器读像素：投影找棋盘网格 → 每个格边中点测暗线厚度并用 k-means 区分细网格线与粗水箱壁 → 四连通洪泛得到水箱编号 → 盘外行列数字按字形簇识别。
+- 常用选项：`--name`、`--series`、`--width N --height N`、`--thick N`（手动指定粗细线阈值）、`--map 0=3,1=2`（人工指定字形簇对应的数字）、`--dry`、`--debug <目录>`（输出水箱壁覆盖图）、`--max-nodes`、`--verify-timeout`。
+- `--verify` 在子进程里调用项目求解器，大盘题超时只警告，此时条目不写参考解。
+
 ## 项目结构
 
 ```
